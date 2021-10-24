@@ -1,0 +1,102 @@
+/* css eh cascating stylesheet*/
+/*todos elementos h1 da pagina serao afetados*/
+/*o elemento mais forte eh sempre o ultimo da cascata*/
+
+/*seletor universal*/
+* {
+  margin: 0;
+}
+
+
+html,
+body {
+  /*variavel de css*/
+  --black: hsl(240, 6%, 13%);
+  --gray: hsl(240, 9%, 89%);
+
+
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: grid;
+  place-items: center;
+}
+
+main {
+  background: url(images/fundo.jpg) no-repeat center/cover;
+  width: 100vw;
+  min-height: 812px;
+  height: 100vh;
+}
+
+/*css para classe*/
+.container {
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  /*o text align funciona para texto ou elementos que recebem propriedades de texto*/
+  text-align: center;
+  color: var(--gray);
+}
+
+.avatar {
+  /*1rem = 16px*/
+  width: 10rem;
+  margin: 11.5rem auto 0;
+  /*torna o elemento o limite para o absoluto dentro dele*/
+  position: relative;
+}
+
+/*tag dentro da classe*/
+.avatar span {
+  /*permite criar niveis de empilhamento
+    a imagem nao pertence mais ao mesmo nivel das outras
+  */
+  position: absolute;
+  top: -15px;
+  /*por causa das propriedades do clip-path precisa mexer no eixo z para reposicionar a imagem*/
+  z-index: 1;
+}
+/*procura a imagem que esta no primeiro nivel eh a imagem foto pessoal*/
+.avatar > img {
+  width: 10rem;
+  height: 11.5rem;
+  /*essa propriedade adapta a imagem ao tamanho definido*/
+  object-fit: cover;
+  /*usar o clip-path css para formatar a imagem*/
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+h1 {
+  font-size: 1.5rem;
+
+  margin-top: 1.5rem;
+}
+
+a {  
+  color: var(--gray);
+  text-decoration: none;  
+  margin-top: 0.25rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;  
+}
+
+p {
+  margin-top: 2rem;
+}
+
+ul {
+  margin-top: 4rem;
+  list-style: none;
+  padding: 0;
+  /*coloca um elemento ao lado do outro no eixo x - main*/
+  display: flex;
+  /*flex e grid liberam essas propriedas*/
+  gap: 0.5rem;
+  justify-content: center;
+}
